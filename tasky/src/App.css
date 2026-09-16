@@ -46,3 +46,18 @@ div {
   font-size: 0.9em;
   margin-top: 10px;
 }
+
+.deadline {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 0.8em;
+}
+
+.priority {
+  position: center;
+  bottom: 10px;
+  left: 10px;
+  font-size: 0.8em;
+  
+}
