@@ -9,6 +9,8 @@ const Task = (props) => {
             <button onClick={props.markDone}className="doneButton">
                 Done
             </button>
+            <button className='deleteButton' onClick={props.deleteTask}>Delete</button>
+
         </div>
     )
 
