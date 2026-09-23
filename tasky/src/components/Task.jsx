@@ -6,6 +6,9 @@ import CardContent from "@mui/material/CardContent";
 import CardHeader from "@mui/material/CardHeader";
 import Grid from "@mui/material/Grid";
 import Typography from "@mui/material/Typography";
+import DoneIcon from "@mui/icons-material/Done";
+import DeleteIcon from "@mui/icons-material/Delete";
+import Chip from "@mui/material/Chip";
 
 const Task = (props) => {
   const priorityColor = () => {
@@ -22,7 +25,7 @@ const Task = (props) => {
   };
 
   return (
-    <Grid key={props.id} size={{ xs: 12, md: 4 }}>
+    <Grid key={props.id} size={{ xs: 12, sm: 6, md: 4 }}>
       <Card
         sx={{
           backgroundColor: props.done ? "success.light" : "primary.light",
@@ -57,6 +60,14 @@ const Task = (props) => {
               padding: "20px",
             }}
           >
+            <Chip
+              label={props.done ? "Completed" : "In Progress"}
+              color={props.done ? "success" : "warning"}
+              size="small"
+              variant="outlined"
+              icon={props.done ? <DoneIcon /> : undefined}
+              sx={{ mb: 1, fontWeight: 600 }}
+            />
             <Typography component="p" variant="subtitle2" color="text.primary">
               Due: {props.deadline}
             </Typography>
@@ -82,6 +93,7 @@ const Task = (props) => {
             variant="contained"
             size="small"
             color="success"
+            startIcon={<DoneIcon />}
             onClick={props.markDone}
             sx={{ borderRadius: 5, textTransform: "none" }}
           >
@@ -92,6 +104,7 @@ const Task = (props) => {
             variant="contained"
             size="small"
             color="error"
+            startIcon={<DeleteIcon />}
             onClick={props.deleteTask}
             sx={{ borderRadius: 5, textTransform: "none" }}
           >
