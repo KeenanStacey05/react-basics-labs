@@ -25,8 +25,12 @@ const Task = (props) => {
     <Grid key={props.id} size={{ xs: 12, md: 4 }}>
       <Card
         sx={{
-          backgroundColor: props.done ? "lightgrey" : "lightblue",
+          backgroundColor: props.done ? "success.light" : "primary.light",
+          borderRadius: "3px",
           padding: "20px",
+          border: "1px solid",
+          borderColor: props.done ? "success.main" : "primary.main",
+          boxShadow: 3,
         }}
       >
         <CardHeader
@@ -36,6 +40,10 @@ const Task = (props) => {
             borderRadius: "3px",
             padding: "20px",
             textAlign: "center",
+            "& .MuiCardHeader-title": {
+              fontWeight: 700,
+              textTransform: "uppercase",
+            },
           }}
         />
 
@@ -75,6 +83,7 @@ const Task = (props) => {
             size="small"
             color="success"
             onClick={props.markDone}
+            sx={{ borderRadius: 5, textTransform: "none" }}
           >
             Done
           </Button>
@@ -84,6 +93,7 @@ const Task = (props) => {
             size="small"
             color="error"
             onClick={props.deleteTask}
+            sx={{ borderRadius: 5, textTransform: "none" }}
           >
             Delete
           </Button>
